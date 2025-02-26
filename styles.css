@@ -60,33 +60,37 @@ a {
 
 .dialog-window-section {
     width: 100vw;
-    height: 40vh;
+    height: auto;
     display: flex;
-    justify-content: center; 
-    align-items: flex-end; 
+    justify-content: center;
+    align-items: flex-end;
     position: absolute;
     bottom: 0;
     z-index: 1;
-    padding: auto;
 }
 
 .dialog-window {
     width: 80vw;
-    height: 15vh;
-    background: white;
+    min-height: 15vh;
+    max-height: 50vh; /* Maximální výška, aby nepřekrylo menu */
     padding: 20px;
+    background: white;
     border: 1px solid black;
-    margin: 20px 20px 20px 20px;
+    margin: 20px;
     display: flex;
     flex-direction: column;
-    justify-content:flex-end;
+    justify-content: flex-start;
+    transition: height 0.3s ease-in-out;
+    overflow: hidden; /* Skryje přebytečný obsah, pokud je potřeba */
 }
+
 
 .text-box {
     /* border: 1px solid black; */
     height: 100%;
     width: 100%;
 }
+
 
 .in-game-menu{
     width: 100%;
@@ -97,6 +101,9 @@ a {
     justify-content: space-around;
 }
 
+#text-container{
+    padding: 10px 0 10px 0;
+}
 
 .game-container {
     position: absolute;
