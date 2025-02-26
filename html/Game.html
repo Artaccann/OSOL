@@ -1,35 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>One Step Out of Love</title>
-        <link rel="stylesheet" href="../styles.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Step Out of Love</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
 
-    </head>
-    <body>
-        <div class="dialog-window-section">
-                <div class="dialog-window">
-                    <div class="text-box">
-                        <div id="output">
-                            <script src="../Scripts/chapter1_scene1"></script>
-                        </div>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                            Curabitur ac nunc et justo cursus gravida. 
-                            Aenean imperdiet, odio in eleifend cursus, odio orci volutpat lectus, 
-                            nec auctor nunc tortor nec purus.                   
-                    </div>
-                    <div class="in-game-menu">
-                        <a href="Menu.html" class="bolder-hover">Menu</a>
-                        <a href="Settings.html" class="bolder-hover">Settings</a>
-                        <a href="" class="bolder-hover">Skip</a>
-                    </div>
-                </div>
-             </div>
-        <div class="game-container">
-            <canvas id="game-canvas"></canvas>
-            <script src="../Scripts/game.js"></script>
+    <!-- Herní sekce -->
+    <div class="dialog-window-section">
+        <div class="dialog-window">
+            <div class="text-box">
+                <!-- Zde se zobrazí text scény -->
+                <div id="text-container"></div>
+            </div>
+            
+            <!-- Možnosti volby hráče -->
+            <div id="choices-container"></div>
+
+            <!-- Herní menu -->
+            <div class="in-game-menu">
+                <a href="Menu.html" class="bolder-hover">Menu</a>
+                <a href="Settings.html" class="bolder-hover">Settings</a>
+                <a href="#" id="skip-button" class="bolder-hover">Skip</a>
+            </div>
         </div>
-    </body>
+    </div>
+
+    <!-- Herní plátno -->
+    <div class="game-container">
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <!-- Skripty -->
+    <script src="../Scripts/Loader.js"></script> <!-- Nejprve loader -->
+    <script src="../Scripts/game.js"></script> <!-- Poté hlavní hra -->
+
+</body>
 </html>
