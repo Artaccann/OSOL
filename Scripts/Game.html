@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Step Out of Love</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <!-- Herní sekce -->
+    <div class="dialog-window-section">
+        <div class="dialog-window">
+            <div class="text-box">
+                <!-- Zde se zobrazí text scény -->
+                <div id="text-container"></div>
+            </div>
+            
+            <!-- Možnosti volby hráče -->
+            <div id="choices-container"></div>
+
+            <!-- Herní menu -->
+            <div class="in-game-menu">
+                <a href="Menu.html" class="bolder-hover">Menu</a>
+                <a href="Settings.html" class="bolder-hover">Settings</a>
+                <a href="#" id="skip-button" class="bolder-hover">Skip</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Herní plátno -->
+    <div class="game-container">
+        <canvas id="background-canvas"></canvas>
+        <canvas id="character-canvas"></canvas>
+    </div>
+
+    <!-- Skripty -->
+    <script src="../Scripts/Loader.js"></script> <!-- Musí být první -->
+    <script src="../Scripts/Chapter_1/ch1_characters.js"></script>
+    <script src="../Scripts/Chapter_1/ch1_backgrounds.js"></script>
+    <script src="../Scripts/Chapter_1/chapter1_setup.js"></script>
+    <script src="../Scripts/game.js"></script>
+    
+
+</body>
+</html>
