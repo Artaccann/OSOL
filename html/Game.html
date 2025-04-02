@@ -31,12 +31,17 @@
 
     <!-- Herní plátno -->
     <div class="game-container">
-        <canvas id="game-canvas"></canvas>
+        <canvas id="background-canvas"></canvas>
+        <canvas id="character-canvas"></canvas>
     </div>
 
     <!-- Skripty -->
-    <script src="../Scripts/Loader.js"></script> <!-- Nejprve loader -->
-    <script src="../Scripts/game.js"></script> <!-- Poté hlavní hra -->
+    <script src="../Scripts/Loader.js"></script> <!-- Musí být první -->
+    <script src="../Scripts/Chapter_1/ch1_characters.js"></script>
+    <script src="../Scripts/Chapter_1/ch1_backgrounds.js"></script>
+    <script src="../Scripts/Chapter_1/chapter1_setup.js"></script>
+    <script src="../Scripts/game.js"></script>
+    
 
 </body>
 </html>
