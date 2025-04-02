@@ -6,17 +6,6 @@ There is nothing else really.
 
 YET.
 
-I'm just trying how is the text appearing, based on its length. I'm also testing out my new loader and other scripts I do not understand. But I try! If this works, I managed to set it all up! Yay.
-
-Now. This is the last sentence. There is really nothing else.
-
-Why are you continuing?
-
-Stop it.
-
-There is really nothing.
-
-...
 
 Do you want to hear a joke?
 
