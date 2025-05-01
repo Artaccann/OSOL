@@ -62,7 +62,7 @@ const Loader = {
 // 🚀 Načti všechny scény při startu
 window.addEventListener("load", function() {
     Loader.loadScenes([
-        { name: "chapter1", path: "../Chapters/chapter1.md" }
+        { name: "chapter1", path: "/OSOL/Chapters/chapter1.md" }
     ]).then(() => {
         console.log("✅ Všechny scény načteny:", Loader.scenes);
         startGame(); // Teprve teď spustíme hru!
