@@ -20,6 +20,40 @@ function resizeCanvas() {
 
 window.addEventListener('resize', resizeCanvas);
 
+//VZTAHOVÁ PORADNA//
+const relationshipScores = {}; // např. { doctor: 1, maid: -1 }
+
+function updateRelationship(tag) {
+  const match = tag.match(/^([+-])([a-zA-Z0-9_]+)$/);
+  if (!match) return;
+
+  const [, operator, character] = match;
+  if (!relationshipScores[character]) {
+    relationshipScores[character] = 0;
+  }
+
+  if (operator === "+") {
+    relationshipScores[character]++;
+  } else if (operator === "-") {
+    relationshipScores[character]--;
+  }
+
+  console.log(`💗 ${character} má nyní ${relationshipScores[character]} bodů.`);
+  updateRelationshipDebug();
+
+}
+
+//!!!!!!!!DEBUG VZTAHŮ!!!!!!!//
+function updateRelationshipDebug() {
+  const container = document.getElementById("debug-relationships-content");
+  container.innerHTML = "";
+
+  for (const [char, score] of Object.entries(relationshipScores)) {
+    const line = document.createElement("div");
+    line.innerText = `${char}: ${score}`;
+    container.appendChild(line);
+  }
+}
 
 //VYKRESLOVÁNÍ POZADÍ//
 
