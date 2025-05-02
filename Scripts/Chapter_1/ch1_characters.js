@@ -23,7 +23,7 @@ const CH1_CHARACTERS = {
   },
   maid: { name: "maid", 
     sheet: maid_sheet,
-    frameSize: { width: 512, height: 512 }, // velikost jednoho výrazu
+    frameSize: { width: 541.5, height: 1080 }, // velikost jednoho výrazu
     expressions: {
       neutral: { row: 0, col: 0 },
       happy: { row: 0, col: 1 },
@@ -33,7 +33,7 @@ const CH1_CHARACTERS = {
   },
   advisor: { name: "advisor", 
     sheet: maid_sheet,
-    frameSize: { width: 512, height: 512 }, // velikost jednoho výrazu
+    frameSize: { width:  541.5, height: 1080 }, // velikost jednoho výrazu
     expressions: {
       neutral: { row: 0, col: 0 },
       happy: { row: 0, col: 1 },
