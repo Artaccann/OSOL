@@ -14,13 +14,14 @@ function setupChapter1Scene(sceneName) {
       );
       break;
 
-    case "ch1_joke_yes":
-      base_image = CH1_BACKGROUNDS.outside;
-      characters.push(
-        { image: CH1_CHARACTERS.advisor.image, position: "left" },
-        { image: CH1_CHARACTERS.maid.image, position: "right" }
-      );
-      break;
+   case "ch1_joke_yes":
+  base_image = CH1_BACKGROUNDS.outside;
+  characters.push(
+    { ...CH1_CHARACTERS.advisor, position: "left", currentEmotion: "neutral" },
+    { ...CH1_CHARACTERS.maid, position: "right", currentEmotion: "happy" }
+  );
+  break;
+
 
     default:
       console.warn("Neznámá scéna:", sceneName);
