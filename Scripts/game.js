@@ -48,6 +48,11 @@ function drawBackground(img) {
 //VYKRESLOVÁNÍ POSTAV//
 
 function drawCharacterSprite(char) {
+  if (!char || !char.expressions || !char.expressions[char.currentEmotion]) {
+    console.warn("❌ Nevalidní postava pro kreslení:", char);
+    return;
+  }
+
   const sheet = char.sheet;
   const emotion = char.currentEmotion;
   const expression = char.expressions[emotion];
