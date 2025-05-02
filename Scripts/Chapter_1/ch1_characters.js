@@ -1,12 +1,12 @@
 // Postavy pro Chapter 1
 const doctor_sheet = new Image();
-doctor_sheet.src = '/OSOL/Sprites/doctor_sheet.png';
+doctor_sheet.src = './Sprites/doctor_sheet.png';;
 
 const maid_sheet = new Image();
-maid_sheet.src = '/OSOL/Sprites/maid_sheet.png';
+maid_sheet.src = './Sprites/maid_sheet.png';;
 
 const advisor_sheet = new Image();
-advisor_sheet.src = '/OSOL/Sprites/advisor_sheet.png';
+advisor_sheet.src = './Sprites/advisor_sheet.png';;
 
 const CH1_CHARACTERS = {
   doctor: { 
