@@ -7,14 +7,16 @@ function setupChapter1Scene(sceneName) {
     case "chapter1":
       base_image = CH1_BACKGROUNDS.oldroom;
       characters.push(
-        { image: CH1_CHARACTERS.doctor.image, position: "center" },
+        { ...CH1_CHARACTERS.doctor,
+          position: "center",
+          currentEmotion: "happy"
+        }
       );
       break;
 
     case "ch1_joke_yes":
       base_image = CH1_BACKGROUNDS.outside;
       characters.push(
-
         { image: CH1_CHARACTERS.advisor.image, position: "left" },
         { image: CH1_CHARACTERS.maid.image, position: "right" }
       );
