@@ -8,6 +8,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const newGameBtn = document.getElementById("new-game-button");
  newGameBtn?.addEventListener("click", () => {
+});
+
+
   function loadGameProgress() {
   const raw = localStorage.getItem("osol-save");
   if (!raw) return null;
