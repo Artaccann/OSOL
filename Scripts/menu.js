@@ -8,24 +8,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const newGameBtn = document.getElementById("new-game-button");
  newGameBtn?.addEventListener("click", () => {
-  // ✅ Přednahrání zvuků
-  SoundManager.load("rain", "../Sounds/rain.mp3", true);
-  SoundManager.load("page", "../Sounds/page_flip.mp3");
-  SoundManager.load("thunder", "../Sounds/thunder_hit.mp3");
-
-  // ✅ Přehrání tichého nebo reálného zvuku
-  const test = new Audio("../Sounds/page_flip.mp3");
-  test.volume = 0.01; // téměř neslyšné
-  test.play().then(() => {
-    localStorage.setItem("startWithCutscene", "true");
-    window.location.href = "Game.html";
-  }).catch(err => {
-    console.warn("🔇 Zvuk nešel spustit:", err);
-    window.location.href = "Game.html";
-  });
-});
-
-
   function loadGameProgress() {
   const raw = localStorage.getItem("osol-save");
   if (!raw) return null;
