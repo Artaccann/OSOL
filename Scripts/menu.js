@@ -6,9 +6,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const cameFromGame = /Game\.html|Chapters\.html|Settings\.html/.test(document.referrer);
 
-    const newGameBtn = document.getElementById("new-game-button");
- newGameBtn?.addEventListener("click", () => {
+    newGameBtn?.addEventListener("click", () => {
+  localStorage.setItem("startWithCutscene", "true");
+  window.location.href = "Game.html";
 });
+
 
 
   function loadGameProgress() {
