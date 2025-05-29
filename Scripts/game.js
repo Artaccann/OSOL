@@ -33,9 +33,40 @@ document.getElementById("prev-line").addEventListener("click", () => {
 });
 
 document.getElementById("skip-to-choice").addEventListener("click", () => {
-  index = textLines.length;
-  showNextLine();
+  if (isBusy) return;
+
+  const runSkipLoop = () => {
+    if (isBusy) return;
+
+    const line = textLines[index];
+
+    if (!line) {
+      // Pokud jsme mimo scénu, ukonči
+      return;
+    }
+
+    const gotoMatch = line.trim().match(/^\{GOTO\s+([^\}\s]+)(?:\s+in\s+(\d+))?\}\s*$/);
+
+    if (gotoMatch) {
+      // Pokud je GOTO, nech to zpracovat showNextLine (které samo skočí)
+      showNextLine();
+      return;
+    }
+
+    // Pokud jsme na konci
+    if (index >= textLines.length) {
+      return;
+    }
+
+    showNextLine();
+
+    // Další krok až po zobrazení řádku (počkáme cca délku typewriteru)
+    setTimeout(runSkipLoop, 40); // Zrychleně, ale bezpečně
+  };
+
+  runSkipLoop();
 });
+
 
 
 const bgcanvas = document.getElementById('background-canvas');
