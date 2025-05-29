@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Načítám OSOL...</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+  </head>
+  <body class="loader-body">
+  <div class="loader-heart-wrapper">
+    <img src="Sprites/Default/UI/UI_heart.svg" alt="Srdce" class="loader-heart" />
+    <div id="loader-percent" class="loader-percent">0%</div>
+  </div>
+
+  <script>
+    let percent = 0;
+    const text = document.getElementById('loader-percent');
+
+    const interval = setInterval(() => {
+      percent++;
+      text.textContent = percent + "%";
+
+      if (percent >= 100) {
+        clearInterval(interval);
+        window.location.href = "html/Menu.html";
+      }
+    }, 30); // trvání celé animace cca 3s
+  </script>
+</body>
+</html>
