@@ -949,13 +949,14 @@ window.addEventListener("DOMContentLoaded", () => {
     const shouldStartWithCutscene = localStorage.getItem("startWithCutscene") === "true";
     localStorage.removeItem("startWithCutscene");
 
-    if (shouldStartWithCutscene) {
-      playCutscene("intro");
-    } else {
-      startGame();
+   if (shouldStartWithCutscene) {
+        playCutscene("intro"); // ❌ žádné gameUI.display zde!
+      } else {
+        gameUI.style.display = "block";
+        startGame();
+      }
     }
   }
-}
 
   waitForScenesAndStart();
 });
