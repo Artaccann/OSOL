@@ -894,11 +894,11 @@ Laziel [sad]: You may not believe me, Your Majesty.
 
 Laziel [sad]: But I don't know.
 
-Laziel [sad]: This might sound crazy...
+Laziel [sad]: This might sound crazy.
 
-Laziel [sad]: But I am not from this world-
+Laziel [sad]: But I am not from this world.
 
-[Hold on. Me too.](#ch1_laziel_me_too)
+[Hold on, me too!](#ch1_laziel_me_too)
 
 # ch1_laziel_me_too
 
@@ -959,7 +959,7 @@ Laziel [sad]: This might sound crazy...
 
 Laziel [sad]: But I am not from this world-
 
-[Hold onm me too!](#ch1_laziel_me_too)
+[Hold on, me too!](#ch1_laziel_me_too)
 
 
 
