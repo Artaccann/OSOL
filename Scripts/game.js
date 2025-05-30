@@ -443,6 +443,18 @@ function showScene(sceneName) {
 const currentLine = textLines[index]?.trim();
 const gotoMatch = currentLine.match(/^\{GOTO\s+([^\}\s]+)(?:\s+in\s+(\d+))?\}\s*$/);
 
+const execMatch = currentLine.match(/^\{EXECUTE\s+([^\}]+)\}\s*$/);
+if (execMatch) {
+  const funcName = execMatch[1].trim();
+  index++;
+  if (typeof window[funcName] === "function") {
+    window[funcName](); // například switchToChat()
+  } else {
+    console.warn(`❌ EXECUTE: Funkce '${funcName}' neexistuje`);
+  }
+  return;
+}
+
 
 if (gotoMatch) {
   const target = gotoMatch[1];

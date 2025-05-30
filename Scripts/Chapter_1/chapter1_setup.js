@@ -24,6 +24,7 @@ function setupChapter1Scene(sceneName) {
     case "ch1_husband":
     case "ch1_assassination":
     case "ch1_chit_chat":
+    case "ch1_advisor_beef3":
       base_image = CH1_BACKGROUNDS.window;
       characters.push({ ...CH1_CHARACTERS.maid, position: "center" });
       
@@ -58,7 +59,6 @@ function setupChapter1Scene(sceneName) {
     case "ch1_advisor_introduction":
     case "ch1_advisor_beef2":
     case "ch1_luck":
-    case "cch1_advisor_beef3":
       base_image = CH1_BACKGROUNDS.window;
       characters.push(
         { ...CH1_CHARACTERS.maid, position: "right" },
@@ -121,11 +121,10 @@ function setupChapter1Scene(sceneName) {
       case "ch1_thorne_bounty":
       case "ch1_thorne_bold":
       case "ch1_thorne_not_me":
-      case "ch1_laziel":
 
       base_image = CH1_BACKGROUNDS.window;
       characters.push(
-        { ...CH1_CHARACTERS.thorne, position: "center" }
+        { ...CH1_CHARACTERS.thorne, position: "center", currentEmotion: "scared_hooded" }
       );
 
       playBackgroundEffect("../Effects/Light.mp4");
@@ -133,6 +132,17 @@ function setupChapter1Scene(sceneName) {
       break;
 
       case "ch1_laziel":
+   
+      base_image = CH1_BACKGROUNDS.window;
+      characters.push(
+        { ...CH1_CHARACTERS.thorne, position: "right", currentEmotion: "scared_hooded" },
+        { ...CH1_CHARACTERS.laz, position: "left" }
+      );
+
+      playBackgroundEffect("../Effects/Light.mp4");
+    
+      break;
+
       case "ch1_laziel_yell":
       case "ch1_laziel_who":
       case "ch1_laziel_me_too":
@@ -143,7 +153,7 @@ function setupChapter1Scene(sceneName) {
 
       base_image = CH1_BACKGROUNDS.window;
       characters.push(
-        { ...CH1_CHARACTERS.laziel, position: "center" }
+        { ...CH1_CHARACTERS.laz, position: "center" }
       );
 
       playBackgroundEffect("../Effects/Light.mp4");

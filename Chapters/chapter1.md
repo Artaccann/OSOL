@@ -609,6 +609,8 @@ Doctor [neutral]: Now if you excuse me.
 
 Doctor [neutral]: I will go prepare the medicine. 
 
+{GOTO ch1_noise in 0}
+
 # ch1_just_doc_disagree
 
 Doctor [neutral]: ...
@@ -618,24 +620,6 @@ Doctor [neutral]: I hope you are right.
 Doctor [neutral]: Now if you excuse me.
 
 Doctor [neutral]: I will go prepare the medicine. 
-
-{GOTO ch1_alone_room in 0}
-
-# ch1_alone_room
-
-Player: Well...
-
-Player: That was something...
-
-Player: But where the hell am I?
-
-Player: And how did I get here?
-
-Player: Is this a dream?
-
-{NARRATE} If I close my eyes and try to wake up...
-
-Player: Nothing.
 
 {GOTO ch1_noise in 0}
 
@@ -803,7 +787,7 @@ Thorne [sad_hooded]: Look I'm sorry.
 
 Thorne [sad_hooded]: This was all a really bad accident.
 
-[You accidentally killed my husband?](#ch1_thorne_why)
+[You accidentally killed my husband?](#ch1_thorne_angry)
 [You came here to say sorry?](#ch1_thorne_why)
 [Guards!](#ch1_thorne_yell)
 
@@ -887,9 +871,9 @@ Player: There is one person-
 
 Laziel [scared]: Sorry to interrupt your rest Your Majesty but-
 
-Thorne [happy-hooded]: I will come back.
+Thorne [happy_hooded]: I will come back.
 
-Laziel [neutral]: No- Wait- Come back!
+Laziel [neutra]: No- Wait- Come back!
 
 [I really hate how people just barge into my room.](#ch1_laziel_barge)
 [*sigh* And who are you?](#ch1_laziel_who)
@@ -934,7 +918,11 @@ Laziel [happy]: Thank god!
 
 Laziel [happy]: I thought I was stuck here alone!
 
-Laziel: Let's talk
+[Let's talk](#start_chat)
+
+# start_chat
+{EXECUTE switchToChat}
+
 
 # ch1_laziel_barge
 
