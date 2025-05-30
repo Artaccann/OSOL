@@ -762,7 +762,7 @@ Thorne [neutral_hooded]: I would do it again if I had to.
 # ch1_thorne_angry
 Thorne [angry_hooded]: ...
 
-{GOTO ch1_thorne_sorry}
+{GOTO ch1_thorne_reassuring}
 
 # ch1_thorne_reassuring
 
@@ -779,7 +779,7 @@ Player: Well...
 
 Thorne [scared_hooded]: Sure... 
 
-{GOTO ch1_thorne_sorry in 0}
+{GOTO ch1_thorne_bounty in 0}
 
 # ch1_thorne_sorry
 
@@ -839,7 +839,7 @@ Thorne [happy_hooded]: That and ask for you to take back the bounty.
 
 # ch1_thorne_bounty
 
-Thorne [happy_hooded]: The prize on my head?
+Thorne [happy_hooded]: Could you get rid of the prize on my head?
 
 Thorne [happy_hooded]: It's getting pretty tiring.
 
@@ -959,7 +959,7 @@ Laziel [sad]: This might sound crazy...
 
 Laziel [sad]: But I am not from this world-
 
-[Hold on. Me too.](#ch1_laziel_me_too)
+[Hold onm me too!](#ch1_laziel_me_too)
 
 
 
