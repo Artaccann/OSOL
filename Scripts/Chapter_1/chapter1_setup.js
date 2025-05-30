@@ -150,7 +150,7 @@ function setupChapter1Scene(sceneName) {
     
       break;
 
-    case "#ch1_alone_room":
+    case "ch1_alone_room":
       base_image = CH1_BACKGROUNDS.window;
 
       break;
