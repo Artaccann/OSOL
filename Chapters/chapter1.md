@@ -637,6 +637,8 @@ Player: Is this a dream?
 
 Player: Nothing.
 
+{GOTO ch1_noise in 0}
+
 <!--------------THORNE----------------->
 
 # ch1_noise
