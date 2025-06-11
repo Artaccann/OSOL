@@ -3,12 +3,7 @@ console.log('OSOL');
 
 let currentScene = "";
 
-let gameState = {
-  doctor: 2,
-  maid: -1,
-  advisor: 0,
-  thorne: 3
-};
+
 
 const narrationBG = new Image();
 narrationBG.src = "../Sprites/ch1_sprites/ch1_backgrounds/black.png";
@@ -240,7 +235,7 @@ function getRelationshipMood(score) {
 //!!!!!!!!DEBUG VZTAHŮ!!!!!!!//
 function updateRelationshipDebug() {
   const container = document.getElementById("debug-relationships-content");
-  //container.innerHTML = "";
+  container.innerHTML = "";
 
   for (const [char, score] of Object.entries(relationshipScores)) {
     const line = document.createElement("div");
