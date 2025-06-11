@@ -240,7 +240,7 @@ function getRelationshipMood(score) {
 //!!!!!!!!DEBUG VZTAHŮ!!!!!!!//
 function updateRelationshipDebug() {
   const container = document.getElementById("debug-relationships-content");
-  container.innerHTML = "";
+  //container.innerHTML = "";
 
   for (const [char, score] of Object.entries(relationshipScores)) {
     const line = document.createElement("div");
