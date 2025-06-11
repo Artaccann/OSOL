@@ -62,7 +62,7 @@ function setupChapter1Scene(sceneName) {
       base_image = CH1_BACKGROUNDS.window;
       characters.push(
         { ...CH1_CHARACTERS.maid, position: "right" },
-        { ...CH1_CHARACTERS.doctor, position: "middle" },
+        { ...CH1_CHARACTERS.doctor, position: "center" },
         { ...CH1_CHARACTERS.advisor, position: "left" }
       );
      
