@@ -127,7 +127,7 @@ parseMarkdown: function(md) {
 SoundManager.load("rain", "../Sounds/rain.mp3", true);
 SoundManager.load("page", "../Sounds/page_flip.mp3");
 SoundManager.load("thunder", "../Sounds/thunder_hit.mp3");
-SoundManager.load("thunder", "../Sounds/bg_music.mp3");
+SoundManager.load("music", "../Sounds/bg_music.mp3", true);
 
 window.addEventListener("load", function() {
 

@@ -1,4 +1,3 @@
-// SoundManager.js
 const SoundManager = {
   sounds: {},
 
@@ -9,16 +8,23 @@ const SoundManager = {
   },
 
   play(name) {
+    // === ZDE přidáme kontrolu
+    const soundEnabled = localStorage.getItem("soundEnabled") === "true";
+    if (!soundEnabled) {
+      console.log(`🔇 Zvuk '${name}' se NEpřehraje (Sound disabled).`);
+      return;
+    }
+
     const sound = this.sounds[name];
     if (sound) {
-        sound.currentTime = 0;
-        sound.play()
+      sound.currentTime = 0;
+      sound.play()
         .then(() => console.log(`🔊 Zvuk '${name}' přehrán.`))
         .catch(e => console.warn(`❌ Nelze přehrát '${name}':`, e));
     } else {
-        console.warn(`⚠️ Zvuk '${name}' nebyl nalezen.`);
+      console.warn(`⚠️ Zvuk '${name}' nebyl nalezen.`);
     }
-    },
+  },
 
   stop(name) {
     const sound = this.sounds[name];
@@ -33,6 +39,7 @@ const SoundManager = {
     if (sound) sound.volume = volume;
   }
 };
+
 
 
 SoundManager.loadDefaults = function() {

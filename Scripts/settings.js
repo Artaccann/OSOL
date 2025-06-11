@@ -33,11 +33,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // SOUND toggle
     const soundToggle = document.getElementById("sound-toggle");
+
+    const savedSound = localStorage.getItem("soundEnabled");
+    if (savedSound !== null) {
+        soundEnabled = savedSound === "true";
+        if (!soundEnabled) {
+            soundToggle.classList.remove("active");
+            soundToggle.querySelector(".toggle-status").textContent = "Off";
+            bgEffectVideo.muted = true;
+        } else {
+            soundToggle.classList.add("active");
+            soundToggle.querySelector(".toggle-status").textContent = "On";
+            bgEffectVideo.muted = false;
+        }
+    }
+
     soundToggle.addEventListener("click", () => {
         soundToggle.classList.toggle("active");
+        soundEnabled = soundToggle.classList.contains("active");
         const status = soundToggle.querySelector(".toggle-status");
-        status.textContent = soundToggle.classList.contains("active") ? "On" : "Off";
+        status.textContent = soundEnabled ? "On" : "Off";
+        localStorage.setItem("soundEnabled", soundEnabled ? "true" : "false");
+
+        bgEffectVideo.muted = !soundEnabled;
     });
+
 
     // LANGUAGE dropdown
     const languageHeader = document.getElementById("language-header");

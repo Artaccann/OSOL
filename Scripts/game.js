@@ -3,7 +3,19 @@ console.log('OSOL');
 
 let currentScene = "";
 
+let gameState = {
+  doctor: 2,
+  maid: -1,
+  advisor: 0,
+  thorne: 3
+};
 
+let soundEnabled = true; // výchozí
+
+const savedSound = localStorage.getItem("soundEnabled");
+if (savedSound !== null) {
+    soundEnabled = savedSound === "true";
+}
 
 const narrationBG = new Image();
 narrationBG.src = "../Sprites/ch1_sprites/ch1_backgrounds/black.png";
@@ -124,7 +136,7 @@ const bgEffectVideo = document.createElement('video');
 
 bgEffectVideo.src = "../Effects/Light.mp4"; // nebo jiný efekt
 bgEffectVideo.loop = true;
-bgEffectVideo.muted = true;
+bgEffectVideo.muted = !soundEnabled;
 bgEffectVideo.autoplay = true;
 bgEffectVideo.playsInline = true;
 bgEffectVideo.crossOrigin = "anonymous"; // když hostuješ externě
@@ -235,7 +247,7 @@ function getRelationshipMood(score) {
 //!!!!!!!!DEBUG VZTAHŮ!!!!!!!//
 function updateRelationshipDebug() {
   const container = document.getElementById("debug-relationships-content");
-  container.innerHTML = "";
+ // container.innerHTML = "";
 
   for (const [char, score] of Object.entries(relationshipScores)) {
     const line = document.createElement("div");
