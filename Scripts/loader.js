@@ -1,5 +1,26 @@
 console.log("Loader.js načten");
 
+const preloadedImages = {}; // globální cache
+
+const chapter1Images = [
+    "../Sprites/ch1_sprites/ch1_backgrounds/window.png",
+    "../Sprites/ch1_sprites/ch1_backgrounds/black.png",
+    "../Sprites/ch1_sprites/ch1_characters/maid_sheet.png",
+    "../Sprites/ch1_sprites/ch1_characters/advisor_sheet.png",
+    "../Sprites/ch1_sprites/ch1_characters/doctor_sheet.png",
+    "../Sprites/ch1_sprites/ch1_characters/thorne_sheet.png",
+    "../Sprites/ch1_sprites/ch1_characters/laz_sheet.png",
+    "../Sprites/ch1_sprites/ch1_characters/laziel.png"
+    // přidej všechny co kapitola potřebuje
+];
+
+chapter1Images.forEach(path => {
+    const img = new Image();
+    img.src = path;
+    preloadedImages[path] = img;
+});
+
+
 // Hlavní objekt Loaderu
 const Loader = {
     scenes: {}, // Ukládá načtené scény

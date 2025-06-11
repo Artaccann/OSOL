@@ -1,4 +1,10 @@
 window.addEventListener('DOMContentLoaded', () => {
+  // ⬇️ FULLSCREEN REAPPLY first!
+  if (localStorage.getItem("fullscreen") === "true" && !document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => console.log("Fullscreen error", err));
+  }
+
+  // ⬇️ Původní kód menu:
   const video = document.getElementById('menu-bg-video');
   const logo = document.getElementById('logo_mark');
   const menu = document.querySelector('.menu-box');

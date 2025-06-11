@@ -1,6 +1,8 @@
 console.log('OSOL');
 // localStorage.removeItem("osol-save"); <- budu eventually potřebovat na čistku localstorage
 
+let currentScene = "";
+
 let gameState = {
   doctor: 2,
   maid: -1,
@@ -32,41 +34,86 @@ document.getElementById("prev-line").addEventListener("click", () => {
   }
 });
 
+//SKIPPER//
+
 document.getElementById("skip-to-choice").addEventListener("click", () => {
   if (isBusy) return;
-
-  const runSkipLoop = () => {
-    if (isBusy) return;
-
-    const line = textLines[index];
-
-    if (!line) {
-      // Pokud jsme mimo scénu, ukonči
-      return;
-    }
-
-    const gotoMatch = line.trim().match(/^\{GOTO\s+([^\}\s]+)(?:\s+in\s+(\d+))?\}\s*$/);
-
-    if (gotoMatch) {
-      // Pokud je GOTO, nech to zpracovat showNextLine (které samo skočí)
-      showNextLine();
-      return;
-    }
-
-    // Pokud jsme na konci
-    if (index >= textLines.length) {
-      return;
-    }
-
-    showNextLine();
-
-    // Další krok až po zobrazení řádku (počkáme cca délku typewriteru)
-    setTimeout(runSkipLoop, 40); // Zrychleně, ale bezpečně
-  };
-
+  if (skipLoopRunning) return; // pokud už běží skip, neklikáme znova
+  skipLoopRunning = true;
   runSkipLoop();
 });
 
+let skipLoopRunning = false; // flag jestli skip loop běží
+
+function runSkipLoop() {
+  if (isBusy) {
+    setTimeout(runSkipLoop, 20);
+    return;
+  }
+
+  const line = textLines[index];
+  if (!line) {
+    const choices = Loader.scenes[currentScene]?.choices || [];
+    if (choices.length > 0) {
+      console.log("⏹️ Skip zastaven na choices.");
+      skipLoopRunning = false;
+      return;
+    } else {
+      console.log("➡️ Skip: na konci bez choices, pokračuji...");
+      showNextLine();
+      setTimeout(runSkipLoop, 20);
+      return;
+    }
+  }
+
+  const currentLine = line.trim();
+
+  // GOTO
+  const gotoMatch = currentLine.match(/^\{GOTO\s+([^\}\s]+)(?:\s+in\s+(\d+))?\}\s*$/);
+  if (gotoMatch) {
+    console.log(`➡️ Skip GOTO ${gotoMatch[1]}`);
+    showNextLine();
+    setTimeout(runSkipLoop, 20);
+    return;
+  }
+
+  // EXECUTE
+  const execMatch = currentLine.match(/^\{EXECUTE\s+([^\}]+)\}\s*$/);
+  if (execMatch) {
+    console.log(`➡️ Skip EXECUTE ${execMatch[1]}`);
+    showNextLine();
+    setTimeout(runSkipLoop, 20);
+    return;
+  }
+
+  // NARRATE
+  if (currentLine.startsWith("{NARRATE}")) {
+    console.log("➡️ Skip NARRATE");
+    showNextLine();
+    setTimeout(runSkipLoop, 20);
+    return;
+  }
+
+  // Na konci
+  if (index >= textLines.length) {
+    const choices = Loader.scenes[currentScene]?.choices || [];
+    if (choices.length > 0) {
+      console.log("⏹️ Skip zastaven na choices.");
+      skipLoopRunning = false;
+      return;
+    } else {
+      console.log("➡️ Skip: na konci bez choices, pokračuji...");
+      showNextLine();
+      setTimeout(runSkipLoop, 20);
+      return;
+    }
+  }
+
+  // Normální replika → přeskoč bez vykreslení
+  console.log(`⏭️ Skip replika '${currentLine}'`);
+  index++;
+  setTimeout(runSkipLoop, 5);
+}
 
 
 const bgcanvas = document.getElementById('background-canvas');
@@ -389,6 +436,7 @@ function triggerHeartLove() {
 // Volání scény
 function showScene(sceneName) {
   const safeSceneName = sceneName.toLowerCase().trim().normalize();
+  currentScene = safeSceneName;
 
   if (!Loader.scenes[safeSceneName]) {
     console.error(`❌ Chyba: Scéna '${safeSceneName}' neexistuje.`);
@@ -434,6 +482,7 @@ function showScene(sceneName) {
 
   if (index >= textLines.length) {
     console.log("🎉 Konec textu, zobrazím volby");
+    skipLoopRunning = false;
     showChoices(scene.choices || []);
     textContainer.removeEventListener("click", showNextLine);
     return;
@@ -995,7 +1044,6 @@ window.addEventListener("DOMContentLoaded", () => {
    if (shouldStartWithCutscene) {
         playCutscene("intro"); // ❌ žádné gameUI.display zde!
       } else {
-        gameUI.style.display = "block";
         startGame();
       }
     }
@@ -1004,9 +1052,48 @@ window.addEventListener("DOMContentLoaded", () => {
   waitForScenesAndStart();
 });
 
+// ==========================
+// DEV HOTKEYS
+// ==========================
+
+window.addEventListener("keydown", (e) => {
+  if (e.altKey) return; // aby ses nepletla s Alt+něco
+  if (e.ctrlKey || e.metaKey) return; // aby nevadilo Ctrl/Command
+
+  switch (e.key) {
+    case "+":
+      console.log("🚀 Hotkey: Jump to ch1_doctor");
+      showScene("ch1_doctor");
+      break;
+    case "ě":
+      console.log("🚀 Hotkey: Jump to ch1_whole_squad");
+      showScene("ch1_whole_squad");
+      break;
+    case "š":
+      console.log("🚀 Hotkey: Jump to ch1_miriam_gone");
+      showScene("ch1_miriam_gone");
+      break;
+    case "č":
+      console.log("🚀 Hotkey: Jump to ch1_noise");
+      showScene("ch1_noise");
+      break;
+    case "ř":
+      console.log("🚀 Hotkey: Jump to ch1_laziel");
+      showScene("ch1_laziel");
+      break;
+    case "ž":
+      console.log("🚀 Hotkey: EXECUTE start_chat");
+      switchToChat();
+      break;
+    default:
+      // nic
+      break;
+  }
+});
 
 
-
-
-
-
+document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("fullscreen") === "true") {
+        document.documentElement.requestFullscreen().catch(err => console.log("Fullscreen error", err));
+    }
+});
