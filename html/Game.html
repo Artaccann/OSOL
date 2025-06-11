@@ -19,9 +19,8 @@
             <img src="../Sprites/Default/UI/UI_home.svg" alt="Home"/>
             </a>
        
-            <img src="../Sprites/Default/UI/UI_settings.svg" alt="Settings"/>
+            <img id="settings-button" src="../Sprites/Default/UI/UI_settings.svg" alt="Settings"/>
             
-            <img src="../Sprites/Default/UI/UI_audio.svg" alt="Sound"/>
         </div>
         <div id="toggle-menu">
             <img src="../Sprites/Default/UI/UI_dropdown.svg" alt="Toggle Menu"/>
@@ -65,7 +64,55 @@
         <strong>💬 Vztahy:</strong>
         <div id="debug-relationships-content"></div>
       </div>-->
-      
+    
+    <!-- Settings modal overlay -->
+    <div id="settings-modal" class="settings-modal hidden">
+        <div class="settings-wrapper">
+            <div class="menu-back">
+                <a href="#" id="close-settings"><img src="../Sprites/Default/UI/UI.png" alt="Close"></a>
+            </div>
+            <div class="settings-box">
+                <h1 class="settings-title">Settings</h1>
+
+                <div class="settings-row">
+                    <div class="settings-option">
+                        <div class="settings-label">Fullscreen</div>
+                            <div class="settings-toggle" id="fullscreen-toggle">
+                                <div class="toggle-track">
+                                <div class="toggle-thumb"></div>
+                                <span class="toggle-status">Off</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="settings-option">
+                    <div class="settings-label">Sound</div>
+                        <div class="settings-toggle" id="sound-toggle">
+                            <div class="toggle-track">
+                                <div class="toggle-thumb"></div>
+                                <span class="toggle-status">Off</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-language">
+                    <div class="language-header" id="language-header">
+                        Language
+                        <img src="../Sprites/Default/UI/UI_dropdown_brown.svg" id="language-dropdown-toggle" class="language-dropdown-toggle">
+                    </div>
+                    <div class="language-options" id="language-options">
+                        <div class="language-option selected">English <img src="../Sprites/Default/UI/UI_heart_R.svg" class="language-heart"></div>
+                        <div class="language-option">Czech</div>
+                        <div class="language-option">German</div>
+                        <div class="language-option">Spanish</div>
+                        <div class="language-option">French</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Skripty -->
     <script src="../Scripts/soundmanager.js"></script>
     <script src="../Scripts/loader.js"></script> <!-- Musí být první -->
@@ -74,6 +121,7 @@
     <script src="../Scripts/Chapter_1/chapter1_setup.js"></script>
     <script src="../Scripts/Chapter_1/ch1_cutscenes.js"></script>
     <script src="../Scripts/game.js"></script>
+    <script src="../Scripts/settings.js"></script>
     
 
 </body>

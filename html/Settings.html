@@ -5,12 +5,58 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>One Step Out of Love</title>
         <link rel="stylesheet" href="../styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     </head>
-    <body>
-        <div class="menu-back">
-            <a href="Menu.html"><img src="../Sprites/arrow.svg"></a>
-         </div>
+    <body class="settings-page">
+
+        <!-- Settings box with SVG background -->
+        <div class="settings-wrapper">
+            <div class="menu-back">
+                <a href="#" id="close-settings"><img src="../Sprites/Default/UI/UI.png" alt="Close"></a>
+            </div>
+            <div class="settings-box">
+                <h1 class="settings-title">Settings</h1>
+
+                <div class="settings-row">
+                    <div class="settings-option">
+                        <div class="settings-label">Fullscreen</div>
+                            <div class="settings-toggle" id="fullscreen-toggle">
+                                <div class="toggle-track">
+                                <div class="toggle-thumb"></div>
+                                <span class="toggle-status">Off</span>
+                            </div>
+                    </div>
+                </div>
+                <div class="settings-option">
+                    <div class="settings-label">Sound</div>
+                        <div class="settings-toggle" id="sound-toggle">
+                            <div class="toggle-track">
+                                <div class="toggle-thumb"></div>
+                                <span class="toggle-status">Off</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="settings-language">
+                    <div class="language-header" id="language-header">
+                        Language
+                        <img src="../Sprites/Default/UI/UI_dropdown_brown.svg" id="language-dropdown-toggle" class="language-dropdown-toggle">
+                    </div>
+                    <div class="language-options" id="language-options">
+                        <div class="language-option selected">English <img src="../Sprites/Default/UI/UI_heart_R.svg" class="language-heart"></div>
+                        <div class="language-option">Czech</div>
+                        <div class="language-option">German</div>
+                        <div class="language-option">Spanish</div>
+                        <div class="language-option">French</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="../Scripts/settings.js"></script>
     </body>
 </html>
