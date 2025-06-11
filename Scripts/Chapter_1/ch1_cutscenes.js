@@ -2,12 +2,11 @@
 const CH1_CUTSCENES = {
   intro: [
     {
-      image: "../Sprites/ch1_sprites/ch1_cutscenes/cs_1.png",
-      duration: 2000,
+      image: "../Sprites/ch1_sprites/ch1_cutscenes/cs_1_click.png",
+      duration: 4000,
       transition: "fade-in",
       onStart: () => {
         SoundManager.play("page");
-        SoundManager.play("rain");
       }
     },
     {
@@ -55,11 +54,15 @@ const CH1_CUTSCENES = {
       duration: 2000,
       onStart: () => SoundManager.play("page")
     },
-    {
+   {
       image: "../Sprites/ch1_sprites/ch1_cutscenes/cs_4.png",
       duration: 200,
       onStart: () => SoundManager.play("thunder"),
       onEnd: () => {
+        // === STOP rain, PLAY music ===
+        SoundManager.stop("rain");  // přestaneme pršet
+        SoundManager.play("music"); // pustíme hudbu (ta už loop = true)
+
         const canvas = document.getElementById("foreground-effect-canvas");
         const ctx = canvas.getContext("2d");
 
@@ -140,7 +143,6 @@ function playCutscene(name) {
 
   if (name === "intro") {
           SoundManager.play("rain");
-          SoundManager.play("music"); // tady přidáš → jede loop celou cutscénu
       }
 
 
