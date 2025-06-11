@@ -138,6 +138,12 @@ function playCutscene(name) {
   let index = 0;
   resizeCanvas();
 
+  if (name === "intro") {
+          SoundManager.play("rain");
+          SoundManager.play("music"); // tady přidáš → jede loop celou cutscénu
+      }
+
+
   function drawFrame(step, callback) {
     const img = new Image();
     img.src = step.image;
