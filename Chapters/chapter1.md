@@ -413,7 +413,6 @@ Maid [angry]: ...
 
 [Don't be rude.](#ch1_advisor_beef2) {-advisor}
 [Who are you to say such things?](#ch1_advisor_introduction) 
-[...](#ch1_luck) 
 
 # ch1_advisor_beef2
 Advisor [angry]: My apologies. I didn't mean to.
@@ -462,7 +461,7 @@ Advisor [neutral]: I will need to discuss confidential information with the Doc 
 
 Maid [surprised]: ...
 
-[She may stay.](#ch1_advisor_beef3) {-advisor}
+[She may stay.](#ch1_advisor_beef3) {+maid}
 [He is right. You should go.](#ch1_miriam_gone) {-maid}
 [...](#ch1_miriam_gone) 
 
