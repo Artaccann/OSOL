@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    soundToggle.addEventListener("click", () => {
+        soundToggle.addEventListener("click", () => {
         soundToggle.classList.toggle("active");
         soundEnabled = soundToggle.classList.contains("active");
         const status = soundToggle.querySelector(".toggle-status");
@@ -56,7 +56,19 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("soundEnabled", soundEnabled ? "true" : "false");
 
         bgEffectVideo.muted = !soundEnabled;
+
+        if (soundEnabled) {
+            console.log("🔊 Sound ON → spouštím hudbu");
+            SoundManager.play("music");
+            // SoundManager.play("rain"); // volitelné – pokud prší, jinak klidně zakomentuj
+        } else {
+            console.log("🔇 Sound OFF → zastavuji zvuky");
+            SoundManager.stop("music");
+            SoundManager.stop("rain");
+            SoundManager.stop("thunder");
+        }
     });
+
 
 
     // LANGUAGE dropdown
