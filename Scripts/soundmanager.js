@@ -46,4 +46,5 @@ SoundManager.loadDefaults = function() {
   this.load("rain", "../Sounds/rain.mp3", true);
   this.load("page", "../Sounds/page_flip.mp3");
   this.load("thunder", "../Sounds/thunder_hit.mp3");
+  this.load("music", "../Sounds/bg_music.mp3");
 };
