@@ -405,7 +405,7 @@ Advisor [angry]: ...
 
 Advisor [neutral]: What unnecessary comment.
 
-Advisor [neutral]: I can see what was all the noise about now.
+Advisor [neutral]: I can see what was all that noise about now.
 
 Advisor [angry]: Miriam.
 
